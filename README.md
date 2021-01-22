@@ -1,35 +1,36 @@
-GuiziMusic音乐平台子系统——爬虫部分
+GuiziMusic音乐平台子系统——爬虫部分Web Crawler Part of GuiziMusic Project
 ---
 [<img alt="GuiziMusic" src="https://github.com/allenzyd1997/GuiziMusic/blob/master/src/common/image/logo.png" width="250">](https://github.com/allenzyd1997/GuiziMusic)
 
-**主要制作人员：Jackyliu**
+**Main Contributor：Jackyliu**
 
-灵感来自
+Inspired by
 ---
 >[zyingzhou](https://github.com/zyingzhou)/**[music163-spiders](https://github.com/zyingzhou/music163-spiders)**
  
 >[Binaryify](https://github.com/Binaryify)/**[NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)**
 
-环境要求
+环境要求Environment Requirements
 ---
 
 python3.x
 
 使用的库主要有requests,csv,pandas,json,pymysql,codecs,安装比较麻烦的有pycrypto(可用pycryptodome代替)
 MySQL数据库
+Mainly used libs are requests,csv,pandas,json,pymysql,codecs. Using MySQL as database.
 
 
 
 文件功能说明
 ---
 + **[16yun.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/16yun.py)**    
->*使用的亿牛云ip代理，其他程序设置代理时参考用*
+>*使用的亿牛云ip代理，其他程序设置代理时参考用Use 16yun ip pool*
 + **[download.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/download.py)**
 >*歌曲下载实现模块，可通过python download.py 'songid'的命令行形式调用下载*
 + **[downloadapi.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/downloadapi.py)** 
 >*歌曲下载接口，使用flask包装接口，运行后在浏览器以localhost:8000/download?songid='songid'的形式获取下载音乐的地址*
 + **[getartist.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/getartist.py)** 
->*歌手列表爬虫，使用bs4在网易云的歌手列表页面爬取歌手id，姓名和分类*
+>*歌手列表爬虫，使用bs4在网易云的歌手列表页面爬取歌手id，姓名和分类crawler of artist list, using bs4 to crawl down the artist list*
 + **[getcomments.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/getcomments.py)**
 >*歌曲评论爬虫，需要配合歌曲的csv文件使用，读取csv中的歌曲id，通过AES加密和RSA加密获取请求评论所需的params和encSecKey，然后将评论数据和用户数据存入数据库*
 + **[get_hot_songs.py](https://github.com/allenzyd1997/GuiziMusic/blob/Netease_SpiderLJQ/Netease_spider/get_hot_songs.py)** 
